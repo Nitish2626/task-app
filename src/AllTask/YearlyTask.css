@@ -1,0 +1,16 @@
+#yearly-task-container{
+    width:95%;
+    margin:2% 2%;
+    padding:2% 3% 30% 3%;
+    border-radius:10px;
+    background-color: white;
+    z-index:0;
+}
+#yt{
+    width:15%;
+    height:75%;
+    margin-right:8%;
+}
+#yearlytask-container{
+    display:flex;
+}

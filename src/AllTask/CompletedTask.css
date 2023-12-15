@@ -1,0 +1,16 @@
+#completed-task-container{
+    width:95%;
+    margin:2% 2%;
+    padding:2% 3% 30% 3%;
+    border-radius:10px;
+    background-color: white;
+    z-index:0;
+}
+#ct{
+    width:13%;
+    height:60%;
+    margin-right:5%;
+}
+#completedtask-container{
+    display:flex;
+}

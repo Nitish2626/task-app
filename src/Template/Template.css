@@ -1,0 +1,73 @@
+ul li{
+    list-style-type: none;
+}
+#template-container{
+    border-radius:10px;
+    padding:1% 4%;
+    margin:5% 0%;
+    width:100%;
+    position:relative;
+    z-index:0;
+    animation:ani 3s 1;
+}
+#template-container::before{
+    content:'';
+    width:100%;
+    background-image: url("../../public/images/task-template.jpeg");
+    background-size: cover;
+    position:absolute;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    opacity:0.3;
+}
+@keyframes ani{
+    from{
+        opacity:0;
+    }
+    to{
+        opacity:1;
+    }
+}
+#template-heading{
+    position: relative;
+    color:rgb(20, 7, 204);
+    font-size:20px;
+    font-weight: bold;
+}
+#time{
+    position:relative;
+    text-align:center;
+    color:red;
+    margin-bottom:2%;
+}
+#template-footer{
+    display: flex;
+}
+#edit-button,#delete-button{
+    width:12%;
+    border:none;
+    border-radius:50%;
+    background-color: transparent;
+    z-index:10;
+}
+#edit-button:hover,#delete-button:hover{
+    background-color: white;
+}
+#edit-button{
+    margin-left:65%;
+    margin-right:2%;
+    padding:2% 2% 0% 0%;
+}
+#edit-icon,#delete-icon{
+    width:70%;
+    height:70%;
+}
+#delete-icon{
+    width:50%;
+    cursor: pointer;
+}
+

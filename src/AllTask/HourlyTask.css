@@ -1,0 +1,17 @@
+#hourly-task-container{
+    position: relative;
+    width:95%;
+    margin:2% 2%;
+    padding:2% 3% 30% 3%;
+    border-radius:10px;
+    background-color: white;
+    z-index:0;
+}
+#ht{
+    width:20%;
+    height:75%;
+    margin-right:5%;
+}
+#hourlytask-container{
+    display:flex;
+}
