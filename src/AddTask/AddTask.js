@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import cancel from "../images/close.png";
-import './AddTask.css'
+import plus from "../images/plus.png";
 import TaskInfoForm from '../task info form/TaskInfoForm';
 
 const AddTask = (props) => {
 
-    const [dur, setDuration] = useState();
+    const [dur, setDuration] = useState("");
 
     const [title, setTitle] = useState("");
     const changeTitle = (events) => {
@@ -25,9 +25,9 @@ const AddTask = (props) => {
     let date, date1;
     let year, month, dat, hours, minutes;
     let year1, month1, dat1, hours1, minutes1;
-    let sumyear, summonth, sumdate, sumhours, summinutes;
+    let sumyear, summonth, sumdate, sumhours=0, summinutes=0;
 
-    let totalmonth, totalday;
+    let totalmonth, totalday=0;
 
     useEffect(() => {
         const duration = () => {
@@ -117,10 +117,10 @@ const AddTask = (props) => {
         };
         duration();
 
-    },[sdate,edate]);
+    }, [sdate, edate]);
 
     const [show, setShow] = useState(props.change);
-    const [selectOption,setSelectOption]=useState("Hourly");
+    const [selectOption, setSelectOption] = useState("Hourly");
 
     const selection = (events) => {
         setSelectOption(events.target.value);
@@ -138,50 +138,104 @@ const AddTask = (props) => {
         }, 200)
     }
 
-    // const hide = () => {
-    //     props.sh(false);
-    // }
+    const hide = () => {
+        props.sh(false);
+    }
 
     return (
         <div className='w-full h-screen flex items-center justify-center my-1'>
 
-            <div id="create-task" className='w-11/12 absolute bg-white rounded-lg px-3 py-2 z-10'>
+            <div className='w-11/12 absolute bg-white rounded-lg px-3 py-2 z-10'>
 
                 <form onSubmit={submit}>
 
                     <section className='w-full flex items-center justify-end'>
-
-                        <button id="cancel" className='w-1/12 flex items-center justify-center rounded-full py-1 px-1 hover:bg-slate-300'>
+                        <button className='w-1/12 flex items-center justify-center rounded-full py-1 px-1 hover:bg-slate-300' onClick={hide}>
 
                             <img src={cancel} className='w-3 h-3'></img>
 
                         </button>
-
                     </section>
 
-                    <h2 className='text-xl font-semibold mb-1'>Create Task</h2>
-                    <hr />
+                    <h2 className='text-xl font-semibold mb-1'>
+                        Create Task
+                    </h2>
+                    <hr className='mb-2' />
 
-                    <TaskInfoForm type="text" title="Enter a name for the task" value={title} change={changeTitle} label="New Task" required={true} readOnly={false} />
+                    <TaskInfoForm
+                        type="text"
+                        label="New Task"
+                        title="Enter a name for the task"
+                        value={title} change={changeTitle}
+                        required={true}
+                        readOnly={false}
+                        css="w-full border-2 border-gray-500 rounded-md text-lg py-1 px-2 mb-2"
+                    />
 
-                    <TaskInfoForm type="datetime-local" title="Enter Starting Date and Time of your Task" value={sdate} change={changeSdate} label="Task Start Date and Time" required={true} readOnly={false} />
+                    <TaskInfoForm
+                        type="datetime-local"
+                        label="Task Start Date and Time"
+                        title="Enter Starting Date and Time of your Task"
+                        value={sdate}
+                        change={changeSdate}                       
+                        required={true}
+                        readOnly={false}
+                        css="w-full border-2 border-gray-500 rounded-md text-lg py-1 px-2 mb-2"
+                    />
 
-                    <TaskInfoForm type="datetime-local" title="Enter Ending Date and Time of your Task" value={edate} change={changeEdate} label="Task End Date and Time" required={true} readOnly={false} />
+                    <TaskInfoForm
+                        type="datetime-local"
+                        label="Task End Date and Time"
+                        title="Enter Ending Date and Time of your Task"
+                        value={edate}
+                        change={changeEdate}
+                        required={true}
+                        readOnly={false}
+                        css="w-full border-2 border-gray-500 rounded-md text-lg py-1 px-2 mb-2"
+                    />
 
-                    <TaskInfoForm type="text" title="How much time will you get to complete your task" label="Task Duration" value={dur} required={false} readOnly={true} />
+                    <TaskInfoForm
+                        type="text"
+                        label="Task Duration"
+                        title="How much time will you get to complete your task" 
+                        value={dur}
+                        required={false}
+                        readOnly={true}
+                        css="w-full border-2 border-gray-500 rounded-md text-lg py-1 px-2 mb-2"
+                    />
 
-                    <TaskInfoForm type="text" title="Task Category" value={selectOption} label="Task Category" required={true} readOnly={true} />
+                    <TaskInfoForm
+                        type="text"
+                        label="Task Category"
+                        title="Task Category"
+                        value={selectOption}
+                        required={true}
+                        readOnly={true}
+                        css="w-24 border-2 border-gray-500 rounded-md text-lg px-2 py-1 mb-2"
+                    />
 
-                    <select value={selectOption} onChange={selection}>
-                        <option className="options" value="Hourly">Hourly</option>
-                        <option className="options" value="Daily">Daily</option>
-                        <option className="options" value="Weekly">Weekly</option>
-                        <option className="options" value="Monthly">Monthly</option>
-                        <option className="options" value="Yearly">Yearly</option>
+                    <select className='w-24 text-lg border-2 border-gray-500 px-2 py-1 rounded-md ml-6' value={selectOption} onChange={selection}>
+
+                        <option value="Hourly">
+                            Hourly
+                        </option>
+                        <option value="Daily">
+                            Daily
+                        </option>
+                        <option value="Weekly">
+                            Weekly
+                        </option>
+                        <option value="Monthly">
+                            Monthly
+                        </option>
+                        <option value="Yearly">
+                            Yearly
+                        </option>
+
                     </select>
 
-                    <button type="submit">
-                        <img id="add-img" src="./images/plus.png"></img>
+                    <button type="submit" className='flex items-center justify-center bg-green-600 text-xl text-white outline-none rounded-md py-1 px-4 mt-4 cursor-pointer hover:bg-green-700'>
+                        <img src={plus} className='w-4 h-4 mr-2'></img>
                         Add
                     </button>
 

@@ -14,9 +14,9 @@ function App() {
 
   const [sho, setSho] = useState(true);
 
-  // const hideCreateTask = (s) => {
-  //   setSho(s);
-  // }
+  const hideCreateTask = (s) => {
+    setSho(s);
+  }
 
   const [hourly, setHourly] = useState([]);
   const [daily, setDaily] = useState([]);
@@ -58,7 +58,7 @@ function App() {
       <Router>
         <Navigation />
 
-        {sho && <AddTask onAddTemplate={onAddTemplateHandler} />}
+        {sho && <AddTask onAddTemplate={onAddTemplateHandler} sh={hideCreateTask} />}
 
         <Routes>
 
