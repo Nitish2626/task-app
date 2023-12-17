@@ -9,6 +9,7 @@ import Completed from './AllTask/CompletedTask';
 import Ongoing from './AllTask/OngoingTask';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from 'react';
+import Sidebar from './side-bar/Sidebar';
 
 function App() {
 
@@ -57,8 +58,11 @@ function App() {
     <>
       <Router>
         <Navigation />
+        <Sidebar />
 
         {sho && <AddTask onAddTemplate={onAddTemplateHandler} sh={hideCreateTask} />}
+
+        
 
         <Routes>
 

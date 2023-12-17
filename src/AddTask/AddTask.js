@@ -128,7 +128,7 @@ const AddTask = (props) => {
 
     const submit = (events) => {
         events.preventDefault();
-        props.onAddTemplate(title, document.getElementById("duration").value, document.getElementById("task-category").value);
+        // props.onAddTemplate(title, document.getElementById("duration").value, document.getElementById("task-category").value);
         setTitle("");
         setsdate("");
         setedate("");

@@ -13,7 +13,7 @@ ul li{
 #template-container::before{
     content:'';
     width:100%;
-    background-image: url("../../public/images/task-template.jpeg");
+    background-image: url("../images/task-template.jpeg");
     background-size: cover;
     position:absolute;
     background-repeat: no-repeat;

@@ -12,6 +12,11 @@ body {
   background-color: rgb(197, 193, 193);
 }
 
+.active{
+  background-color: rgb(228, 228, 228);
+  border-radius:10px;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
