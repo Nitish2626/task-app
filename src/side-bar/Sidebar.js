@@ -1,7 +1,6 @@
-import "./Sidebar.css";
+import addTaskIcon from "../images/addtask-icon.png";
 import homeIcon from "../images/home-icon.png";
 import aboutIcon from "../images/about-icon.png";
-import ongoingIcon from "../images/ongoingtask-icon.png";
 import hourlyIcon from "../images/hourlytask-icon.png";
 import dailyIcon from "../images/dailytask-icon.png";
 import weeklyIcon from "../images/weeklytask-icon.png";
@@ -10,12 +9,17 @@ import yearlyIcon from "../images/yearlytask-icon.png";
 import completedIcon from "../images/completedtask-icon.png";
 import Navlink from "../components/navlink/Navlink";
  
-const Sidebar=()=>{
-    return(
-        <section className="w-9/12 flex flex-col justify-center fixed bg-white right-0 rounded-lg px-1 py-2 z-10 shadow-[2px_2px_10px_0px_black]">
+const Sidebar=(props)=>{
 
-            <button className="links" id="add-task">
-                <img id="add" src="./images/addtask-icon.png"></img>
+    const showTask=()=>{
+        props.addTask(true);
+    };
+
+    return(
+        <section className="w-56 flex flex-col justify-center fixed bg-white right-0 rounded-lg px-1 py-2 z-10 shadow-[2px_2px_10px_0px_black]">
+
+            <button className="flex items-center text-black text-xl cursor-pointer pl-3 py-1 mb-2 rounded-lg hover:bg-slate-200" onClick={showTask}>
+                <img src={addTaskIcon} className="w-6 h-6 mr-5 border-2 border-dashed border-black rounded-full"></img>
                 Add New Task
             </button>
             <hr />
@@ -24,50 +28,17 @@ const Sidebar=()=>{
 
             <Navlink to="/about" src={aboutIcon} link="About" />
 
-            {/* <NavLink className="links" to="/home">
-                <img id="home" src="./images/home-icon.png"></img>
-                Home
-            </NavLink>
+            <Navlink to="/hourly-tasks" src={hourlyIcon} link="Hourly Task" />
 
-            <NavLink className="links" to="/about">
-                <img id="about" src="./images/about-icon.png"></img>
-                About Us
-            </NavLink>
+            <Navlink to="/daily-tasks" src={dailyIcon} link="Daily Tasks" />
 
-            <NavLink className="links" to="/ongoing">
-                <img id="ongoing" src="./images/ongoingtask-icon.png"></img>
-                Ongoing Tasks
-            </NavLink>
+            <Navlink to="/weekly-tasks" src={weeklyIcon} link="Weekly Tasks" />
 
-            <NavLink className="links" to="/hourly">
-                <img id="hourly" src="./images/hourlytask-icon.png"></img>
-                Hourly Tasks
-            </NavLink>
+            <Navlink to="/monthly-tasks" src={monthlyIcon} link="Monthly Tasks" />
 
-            <NavLink className="links" to="/daily">
-                <img id="daily" src="./images/dailytask-icon.png"></img>
-                Daily Tasks
-            </NavLink>
+            <Navlink to="/yearly-tasks" src={yearlyIcon} link="Yearly Tasks" />
 
-            <NavLink className="links" to="/weekly">
-                <img id="weekly" src="./images/weeklytask-icon.png"></img>
-                Weekly Tasks
-                </NavLink>
-
-            <NavLink className="links" to="/monthly">
-                <img id="monthly" src="./images/monthlytask-icon.png"></img>
-                Monthly Tasks
-            </NavLink>
-
-            <NavLink className="links" to="/yearly">
-                <img id="yearly" src="./images/yearlytask-icon.png"></img>
-                Yearly Tasks
-            </NavLink>
-
-            <NavLink className="links" to="/completed">
-                <img id="completed" src="./images/completedtask-icon.png"></img>
-                Completed Tasks
-            </NavLink> */}
+            <Navlink to="/completed-tasks" src={completedIcon} link="Completed Tasks" />
 
         </section>
     );

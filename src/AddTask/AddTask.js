@@ -119,7 +119,7 @@ const AddTask = (props) => {
 
     }, [sdate, edate]);
 
-    const [show, setShow] = useState(props.change);
+    // const [show, setShow] = useState(props.change);
     const [selectOption, setSelectOption] = useState("Hourly");
 
     const selection = (events) => {
@@ -134,18 +134,18 @@ const AddTask = (props) => {
         setedate("");
         setDuration("");
         setTimeout(() => {
-            props.sh(false);
-        }, 200)
-    }
+            props.addTask(false);
+        }, 300);
+    };
 
     const hide = () => {
-        props.sh(false);
+        props.addTask(false);
     }
 
     return (
-        <div className='w-full h-screen flex items-center justify-center my-1'>
+        <div className='w-full h-screen absolute flex items-center justify-center my-1'>
 
-            <div className='w-11/12 absolute bg-white rounded-lg px-3 py-2 z-10'>
+            <div className='w-11/12 bg-white rounded-lg px-3 py-2 z-10'>
 
                 <form onSubmit={submit}>
 

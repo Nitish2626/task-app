@@ -6,18 +6,18 @@ import Daily from './AllTask/DailyTask';
 import Monthly from './AllTask/MonthyTask';
 import Yearly from './AllTask/YearlyTask';
 import Completed from './AllTask/CompletedTask';
-import Ongoing from './AllTask/OngoingTask';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from 'react';
 import Sidebar from './side-bar/Sidebar';
 
 function App() {
 
-  const [sho, setSho] = useState(true);
+  const [showAddTask, setShowAddTask] = useState(false);
+  const [showSidebar,setShowSidebar]=useState(false);
 
-  const hideCreateTask = (s) => {
-    setSho(s);
-  }
+  const showAddNewTask = (s) => {
+    setShowAddTask(s);
+  };
 
   const [hourly, setHourly] = useState([]);
   const [daily, setDaily] = useState([]);
@@ -57,30 +57,27 @@ function App() {
   return (
     <>
       <Router>
-        <Navigation />
-        <Sidebar />
+        <Navigation sidebar={setShowSidebar} />
 
-        {sho && <AddTask onAddTemplate={onAddTemplateHandler} sh={hideCreateTask} />}
+        {showSidebar && <Sidebar addTask={showAddNewTask} />}
 
-        
+        {showAddTask && <AddTask onAddTemplate={onAddTemplateHandler} addTask={showAddNewTask} />}
 
         <Routes>
 
-          <Route path=""></Route>
+          <Route path="/"></Route>
 
-          <Route path="/hourly" element={<Hourly value={hourly} /> }></Route>
+          <Route path="/hourly-tasks" element={<Hourly value={hourly} /> }></Route>
 
-          <Route path="/daily" element={<Daily value={daily} />}></Route>
+          <Route path="/daily-tasks" element={<Daily value={daily} />}></Route>
 
-          <Route path="/weekly" element={<Weekly value={weekly} />}></Route>
+          <Route path="/weekly-tasks" element={<Weekly value={weekly} />}></Route>
 
-          <Route path="/monthly" element={<Monthly value={monthly} />}></Route>
+          <Route path="/monthly-tasks" element={<Monthly value={monthly} />}></Route>
 
-          <Route path="/yearly" element={<Yearly value={yearly} />}></Route>
+          <Route path="/yearly-tasks" element={<Yearly value={yearly} />}></Route>
 
-          <Route path="/ongoing" element={<Ongoing />}></Route>
-
-          <Route path="/completed" element={<Completed />}></Route>
+          <Route path="/completed-tasks" element={<Completed />}></Route>
 
         </Routes>
       </Router>
