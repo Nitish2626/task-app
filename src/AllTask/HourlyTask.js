@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './HourlyTask.css'
-import Template from '../Template/Template';
+import Template from '../components/Template/Template';
 
 const Hourly = (props) => {
 

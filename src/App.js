@@ -9,6 +9,7 @@ import Completed from './AllTask/CompletedTask';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from 'react';
 import Sidebar from './side-bar/Sidebar';
+import Template from './components/Template/Template';
 
 function App() {
 
@@ -65,7 +66,7 @@ function App() {
 
         <Routes>
 
-          <Route path="/"></Route>
+          <Route path="/" element={<Template />}></Route>
 
           <Route path="/hourly-tasks" element={<Hourly value={hourly} /> }></Route>
 

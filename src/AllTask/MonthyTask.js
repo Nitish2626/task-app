@@ -1,5 +1,5 @@
 import './MonthlyTask.css';
-import Template from '../Template/Template';
+import Template from '../components/Template/Template';
 
 const Monthly=(props)=>{
     return (
